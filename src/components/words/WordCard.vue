@@ -4,7 +4,7 @@ export default {
     props: { word: Object },
     computed: {
         abstract() {
-            const abstract = this.word.definition.slice(0, 550);
+            const abstract = this.word.definition.slice(0, 400);
             return abstract + '...';
         },
         pubblicationDate() {
@@ -32,7 +32,7 @@ export default {
             </RouterLink> -->
         </div>
         <div class="card-body clearfix">
-            <p>{{ word.definition ? word.definition : abstract }}</p>
+            <p>{{ abstract }}</p>
         </div>
         <div class="card-footer d-flex justify-content-between">
             <small>Pubblicato il {{ pubblicationDate }}</small>
