@@ -19,8 +19,7 @@ export default {
 </script>
 
 <template>
-    <input type="text" placeholder="Cerca una parola" v-model="inputValue" @keyup="search"
-        @keydown.enter.prevent="handleEnter" />
+    <input type="text" placeholder="Cerca una parola" v-model="inputValue" @keyup="search" />
 </template>
 
 <style></style>
