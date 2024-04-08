@@ -18,20 +18,7 @@ export default {
             }).then(() => {
                 this.isLoading = false;
             })
-        },
-
-        async fetchApi(query) {
-            this.isLoading = true;
-            await axios.get(endpoint + query).then(res => {
-                this.words = res.data;
-            }).catch(err => {
-                console.error(err);
-            }).then(() => {
-                this.isLoading = false;
-            })
         }
-
-
     },
     created() {
         this.fetchWords();
@@ -42,7 +29,7 @@ export default {
 <template>
     <div class="d-flex justify-content-between align-items-center">
         <h1>Glossario</h1>
-        <Search @search="fetchApi" />
+        <Search @search="fetchWords" />
     </div>
     <AppLoader v-if="isLoading" />
     <WordsList v-else :words="words" />
