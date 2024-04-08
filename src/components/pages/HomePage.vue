@@ -7,17 +7,25 @@ const endpoint = 'http://localhost:8000/api/words/';
 export default {
     name: 'HomePage',
     components: { WordsList, Search },
-    data: () => ({ words: [], isLoading: false }),
+    data() {
+        return {
+            words: [],
+            isLoading: false,
+        };
+    },
     methods: {
-        fetchWords() {
+        fetchWords(searchTerm = '') {
             this.isLoading = true;
-            axios.get(endpoint).then(res => {
-                this.words = res.data;
-            }).catch(err => {
-                console.error(err);
-            }).then(() => {
-                this.isLoading = false;
-            })
+            axios.get(endpoint, { params: { q: searchTerm } })
+                .then(res => {
+                    this.words = res.data;
+                })
+                .catch(err => {
+                    console.error(err);
+                })
+                .finally(() => {
+                    this.isLoading = false;
+                });
         }
     },
     created() {
@@ -33,7 +41,6 @@ export default {
     </div>
     <AppLoader v-if="isLoading" />
     <WordsList v-else :words="words" />
-
 </template>
 
 <style></style>
