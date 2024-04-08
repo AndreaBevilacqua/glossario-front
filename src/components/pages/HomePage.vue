@@ -16,7 +16,7 @@ export default {
     methods: {
         fetchWords(searchTerm = '') {
             this.isLoading = true;
-            axios.get(endpoint, { params: { q: searchTerm } })
+            axios.get(endpoint, { params: { term: searchTerm } })
                 .then(res => {
                     this.words = res.data;
                 })
