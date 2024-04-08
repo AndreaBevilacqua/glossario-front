@@ -23,7 +23,7 @@ export default {
                 .catch(err => {
                     console.error(err);
                 })
-                .finally(() => {
+                .then(() => {
                     this.isLoading = false;
                 });
         }
