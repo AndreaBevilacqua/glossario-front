@@ -1,12 +1,18 @@
 <script>
+import AppHeader from './components/AppHeader.vue';
+
+
 export default {
   name: 'Glossario',
-}
+  components: { AppHeader },
+
+};
 </script>
 
 <template>
-  <main class="container pt-4">
-    <h1>Glossario</h1>
+  <AppHeader />
+  <main class="container py-4">
+    <RouterView />
   </main>
 </template>
 
